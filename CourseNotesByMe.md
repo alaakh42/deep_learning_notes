@@ -7,9 +7,9 @@ Dropout roughly doubles the number of iterations required to converge.
 
 ### Filters
 
-- Using small filters (3 × 3) (which is the smallest size to capture the notion of left/right, up/down, center).
-- Using (1 × 1) convolution filters, which can be seen as a linear transformation of the input channels (followed by non-linearity), aslo it increase the nonlinearity of the decision function without affecting the receptive fields of the conv layers.
-- Why to use say a stack of 3 (3 × 3) filters instead of 1 (7 × 7) filter?
+- Using small filters `(3 × 3)` (which is the smallest size to capture the notion of left/right, up/down, center).
+- Using `(1 × 1)` convolution filters, which can be seen as a linear transformation of the input channels (followed by non-linearity), aslo it increase the nonlinearity of the decision function without affecting the receptive fields of the conv layers.
+- Why to use say a stack of 3 `(3 × 3)` filters instead of 1 `(7 × 7)` filter?
 	- First, we incorporate three non-linear rectification layers instead of a single one, which makes the decision function more discriminative.
 	- Second, we decrease the number of parameters
 
@@ -29,7 +29,7 @@ When deeper networks are able to start converging, a degradation problem has bee
 ### why (1 × 1) Convolution?
 
 1. Network in a network as it learns complex non-linear relations about a slice of a volume
-2. Reducing number of channels i.e. (28 × 28 × 192) * (1 × 1 × 92) {#Filters=32} = (28 × 28 × 32)
+2. Reducing number of channels i.e. `(28 × 28 × 192)` * `(1 × 1 × 92)` `#Filters=32` = `(28 × 28 × 32)`
 
 
 
