@@ -46,3 +46,29 @@ When deeper networks are able to start converging, a degradation problem has bee
 In whih you need to learn a model that can recognize say an image given only one sample. This can be done using:
 1. __Similarity Function__ where you calculate the degree of differnce between two images which is done using 
 a `Siamese Network` where you input the two images then by applying back propagation to the `Triplet loss` function that calculates a number. if number is small then images are the same if it is large they are different
+
+
+### Why RNN?
+
+1. Because input and output can have different lengthd in different examples
+2. we don't share features learned across different positions aka. keeps track of previous parts of a sequence. so `w`, `b` are shared between all time steps
+
+
+### Why GRU?
+
+Because of the vanishing/ exploiding gradients problem where a simple RNN cannot keep track of long sequences. so Gated Recurrent Units acts a `memory cell` to keep track of all pevious information in a sequence while in the same time using a `gate` to decide whether to store a token in a sequence or not
+
+
+### Why LSTM?
+
+It is another variation of GRU but the difference is that LSTM has a `forget` gate
+
+
+### Word Embedding
+
+- __Negative sampling__ helps in shortening the learning time of word embedding, it depends on picking one positive pair of 2 highly correlated word vectors while picking a few random negative samples so you only train each context word for #times = #negative_examples + 1 postive_example
+
+
+### Transfer Learning
+
+Transfer Learning in NLP is useful for NER, Text Summurization but no so useful for Machine Translation and Language Modeling
