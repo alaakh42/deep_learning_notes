@@ -23,7 +23,7 @@ implements the lateral inhibition. This layer is useful when we are dealing with
 
 ### Do Deeper Networks means higher accuracy?
 
-When deeper networks are able to start converging, a degradation problem has been exposed: with the network depth increasing, accuracy gets saturated (which might be unsurprising) and then degrades rapidly. Unexpectedly, such degradation is not caused by overfitting, and adding more layers to a suitably deep model leads to higher training error
+When deeper networks are able to start converging, a degradation problem has been exposed: with the network depth increasing, accuracy gets saturated (which might be unsurprising) and then degrades rapidly. Unexpectedly, such degradation is not caused by overfitting, and adding more layers to a suitably deep model leads to higher training error.
 
 
 ### why (1 × 1) Convolution?
@@ -32,5 +32,17 @@ When deeper networks are able to start converging, a degradation problem has bee
 2. Reducing number of channels i.e. `(28 × 28 × 192)` * `(1 × 1 × 92)` `#Filters=32` = `(28 × 28 × 32)`
 
 
+### IOU and Non-Max Supression
+
+- __IOU__ aka. (Intersection over Union) in which we calculate the intersection area between every different window and the object then divide it by the union of the total windows and the object, it is used to tell how good a window in detecting the object when more than one window claims the same object. the higher IOU the better
+
+- __Non-max Supression Algorithm__ if two bounding boxes have the same IOU then you will pick the one with the highest Pc (probability of object exsistence)
+
+- __Anchor Boxes__ let you encode multible objects in the same square(overlapping objects), 
 
 
+### One Shot Learning
+
+In whih you need to learn a model that can recognize say an image given only one sample. This can be done using:
+1. __Similarity Function__ where you calculate the degree of differnce between two images which is done using 
+a `Siamese Network` where you input the two images then by applying back propagation to the `Triplet loss` function that calculates a number. if number is small then images are the same if it is large they are different
