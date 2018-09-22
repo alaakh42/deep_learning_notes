@@ -66,9 +66,28 @@ It is another variation of GRU but the difference is that LSTM has a `forget` ga
 
 ### Word Embedding
 
-- __Negative sampling__ helps in shortening the learning time of word embedding, it depends on picking one positive pair of 2 highly correlated word vectors while picking a few random negative samples so you only train each context word for #times = #negative_examples + 1 postive_example
+- __Negative sampling__ helps in shortening the learning time of word embedding, it depends on picking one positive pair of 2 highly correlated word vectors while picking a few random negative samples (in other words the negative samples are ones that don't exist in the specified window size) so you only train each context word for #times = #negative_examples + 1 postive_example
+	- __Word2vec__: Skipgrams and Continous BoW
+	- __GLove__   : an extension of Word2vec where also the number of word occuranc is taking into account
+	- __Fastext__ : an extension of Word2vec model , treats each word as a sequence composed of char ngrams so the word vector is made up of the sum of this char ngrams. 
+		- It has better word vecs for rare words because even if words are rare their characters are diffenitely shared with other words
+		- doesn't suffer OOV (out if vocabulary) error because we can always construct a word vector for a new word by summing its char ngrams vectors
+		- slower to generate so you have to choose well max/min char ngram length
 
 
 ### Transfer Learning
 
 Transfer Learning in NLP is useful for NER, Text Summurization but no so useful for Machine Translation and Language Modeling
+
+
+### Hierachial Softmax
+
+
+
+### BLEU Score
+
+The bilengual evaluation understudy, is a metric for evaluating a generated sentence to a reference sentence. A perfect match results in a score of 1.0, whereas a perfect mismatch results in a score of 0.0. [source](https://machinelearningmastery.com/calculate-bleu-score-for-text-python/)
+
+
+
+
