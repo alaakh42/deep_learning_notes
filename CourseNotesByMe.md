@@ -89,5 +89,23 @@ Transfer Learning in NLP is useful for NER, Text Summurization but no so useful 
 The bilengual evaluation understudy, is a metric for evaluating a generated sentence to a reference sentence. A perfect match results in a score of 1.0, whereas a perfect mismatch results in a score of 0.0. [source](https://machinelearningmastery.com/calculate-bleu-score-for-text-python/)
 
 
+### Vanishing and Exploiding Gradients
+
+It is a side effect for building very deep networks, The main benefit of a very deep network is that it can represent very complex functions. It can also learn features at many different levels of abstraction, from edges (at the lower layers) to very complex features (at the deeper layers). 
+
+What happens is that the gradient signal goes to zero quickly, thus making gradient descent unbearably slow. More specifically, during gradient descent, as you backprop from the final layer back to the first layer, you are multiplying by the weight matrix on each step, and thus the gradient can decrease exponentially quickly to zero (or, in rare cases, grow exponentially quickly and "explode" to take very large values). During training, you might therefore see the magnitude (or norm) of the gradient for the earlier layers descrease to zero very rapidly as training proceeds
+
+
+### ResNet
+
+It is a CNN architecture that proposed the idea of using __skip connections__ or __shortcuts__ from shallower layers to the deeper layers which learns an __identity function__. A rresnet helps in building deep neural networks without hitting the vanishing gradient barrier which causing the training error to plateau then increase at some point through the training.
+
+It is implemented through 2 main blocks:
+1. [Identity block]()
+	It represents a __shortcut__ connection over the main path which consisits of three hidden layers a `conv layer` fllowed by a `batch normalization` and `RELU activation`
+
+2. [Convolution block]()
+	Has the same components of an Identity block but insted of directly adding a plain shortcut line with the input, you put a conv layer which is used to resize the input `x` to match up in the final addition needed to ass the shortcut value back to the main path
+
 
 
